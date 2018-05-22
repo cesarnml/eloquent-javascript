@@ -90,11 +90,11 @@ function factorial (n) {
   - There is only one value in JavaScript that is not equal to itself, and that is `NaN`
     - `NaN == NaN` returns `false`
 - **Logical Operators**
-  - JavaScript supports three logical operators: _and, or, and not_ 
+  - JavaScript supports three logical operators: _and, or, and not_
   - `&&` the logical _and_ operator returns `true` if both sides evaluate to `true`
   - `||` the logical _or_ operator return `true` if either side evaluates to true
   - `!` the logical _not_ operator returns the flips the value given to it `!true` produes `false`
-  - `? : ` the _conditional_ operator is the only ternary operator in JavaScript. It works like a fancy `if else`
+  - `? :` the _conditional_ operator is the only ternary operator in JavaScript. It works like a fancy `if else`
 - **Empty Value**
   - `null` purposeful absence of value
   - `undefined` program generated absence of value (indicative of a bug)
