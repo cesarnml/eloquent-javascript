@@ -6,6 +6,7 @@
   - [eloquent-javascript](#eloquent-javascript)
     - [Progress](#progress)
     - [Introduction](#introduction)
+    - [Lesson 01: Values, Types, and Operators](#lesson-01-values-types-and-operators)
 
 <!-- /TOC -->
 
@@ -52,7 +53,7 @@ Notes on Eloquent Javascript 3rd Edition [book link](http://eloquentjavascript.n
 ```javascript
 // Calculate nth Fibonacci Number - Recursion!
 
-function factorial(n) {
+function factorial (n) {
   if (n === 0) {
     return 1
   } else {
@@ -60,3 +61,31 @@ function factorial(n) {
   }
 }
 ```
+
+### Lesson 01: Values, Types, and Operators
+
+- **Type: Numbers**
+  - JavaScript uses 64-bits to store numbers
+  - `13` or `9.81` or `2.998e8`
+  - Operators: `*`, `/`, `+`, `-`, `%` (modulo/remainder)
+  - Special Numbers:  `Infinity`, `-Infinity`, `NaN`
+- **Type: Strings**
+  - Strings are wrapped by single quotes, double quotes, or backticks
+  - `\` servers as an escape character when used inside a string
+  - `\n` new line character, `\t` tab character
+  - JavaScript uses 16-bits to represent string characters
+  - `+` concatenate operator when used on strings
+  - Strings that use backticks are called _template literals_
+    - `${}` javascript lives inside curly brackets
+- **Operators**
+  - Binary Operators: `* / + - % > < >= <= === == != !==`
+  - Unary Operators: `typeof`, returns a string value
+  - Ternary Operators: `boolean ? do if true : do if false`
+- **Type: Boolean**
+  - `true` or `false`
+- **Comparison Operators**
+  - `> >= < <= == === != !==`, comparison operators always return a boolean
+  - _Note:_ Uppercase characters < lowercase characters (e.g. `'Z' < 'a' = true`)
+  - There is only one value in JavaScript that is not equal to itself, and that is `NaN`
+    - `NaN == NaN` returns `false`
+- **Logical Operators**
