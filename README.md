@@ -3,7 +3,7 @@
 <!-- TOC -->
 
 - [Table of Contents](#table-of-contents)
-  - [eloquent-javascript](#eloquent-javascript)
+  - [Eloquent Javascript](#eloquent-javascript)
     - [Progress](#progress)
     - [Introduction](#introduction)
     - [Chapter 01: Values, Types, and Operators](#chapter-01-values-types-and-operators)
@@ -24,10 +24,13 @@
         - [Looping a Triangle](#looping-a-triangle)
         - [FizzBuzz](#fizzbuzz)
         - [Chessboard](#chessboard)
+    - [Chapter 03: Functions](#chapter-03-functions)
+      - [Type: Function](#type-function)
+      - [Bindings and Scope](#bindings-and-scope)
 
 <!-- /TOC -->
 
-## eloquent-javascript
+## Eloquent Javascript
 
 Notes on Eloquent Javascript 3rd Edition [book link](http://eloquentjavascript.net/)
 
@@ -242,3 +245,13 @@ for (let i = 0; i < size; i++) {
 }
 console.log(board)
 ```
+
+### Chapter 03: Functions
+
+#### Type: Function
+
+- Functions are declared with the _function_ keyword
+- Functions consist of a set of _parameters_ and a _body_
+- The function _body_ contains the statements that are executed when the function is called.
+
+#### Bindings and Scope
