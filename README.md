@@ -20,13 +20,22 @@
       - [Bindings `===` Variables: `const, let, var`](#bindings--variables-const-let-var)
       - [Type: Functions](#type-functions)
       - [Control Flow: Conditional Execution](#control-flow-conditional-execution)
-      - [Exercises](#exercises)
+      - [Exercises: Chapter 02](#exercises-chapter-02)
         - [Looping a Triangle](#looping-a-triangle)
         - [FizzBuzz](#fizzbuzz)
         - [Chessboard](#chessboard)
     - [Chapter 03: Functions](#chapter-03-functions)
       - [Type: Function](#type-function)
       - [Bindings and Scope](#bindings-and-scope)
+      - [Three-Approaches to Define a Function](#three-approaches-to-define-a-function)
+      - [Function Arguments](#function-arguments)
+      - [Closure](#closure)
+      - [Recursion](#recursion)
+      - [Two-Types of Functions](#two-types-of-functions)
+      - [Exercises: Chapter03](#exercises-chapter03)
+        - [Minimum](#minimum)
+        - [Recursion Exercise](#recursion-exercise)
+        - [Bean Counting](#bean-counting)
 
 <!-- /TOC -->
 
@@ -39,7 +48,7 @@ Notes on Eloquent Javascript 3rd Edition [book link](http://eloquentjavascript.n
 - [X] *Introduction* [2018-05-21]
 - [X] *Chapter 01: Values, Types, and Operators* [2018-05-22]
 - [X] *Chapter 02: Program Structure* [2018-05-23]
-- [ ] Chapter 03: Functions
+- [X] *Chapter 03: Functions* [2018-05-25]
 - [ ] Chapter 04: Data Structures: Objects and Arrays
 - [ ] Chapter 05: Higher-order Functions
 - [ ] Chapter 06: The Secret Life of Objects
@@ -188,7 +197,7 @@ switch (condition) {
 }
 ```
 
-#### Exercises
+#### Exercises: Chapter 02
 
 - Solutions found at [Eloquent JavaScript Solutions](https://eloquentjavascript.net/code#2)
 
@@ -255,3 +264,113 @@ console.log(board)
 - The function _body_ contains the statements that are executed when the function is called.
 
 #### Bindings and Scope
+
+- _scope_ refers to where bindings are accessible in a program
+- _global_ bindings are accessible in the entire program. These are variables defined outside of any function or block.
+- _local_ bindings are accessible only within the function or block where they are declared
+- `let` and `const` are block-scoped
+- `var` is function-scoped
+
+#### Three-Approaches to Define a Function
+
+```javascript
+// FUNCTION DECLARATION
+// function hoisted to top
+square(5) // returns 25
+function square(5) {
+  return x * x
+}
+square(5) // returns 25
+```
+
+```javascript
+// FUNCTION EXPRESSION
+// function not hoisted to top
+square(5) // square is not defined
+const square = function (x) {
+  return x * x
+}
+square(5) // returns 25
+```
+
+```javascript
+// FAT-ARROW FUNCTION
+// function not hoisted to top
+square1(5) // square1 is not defined
+square2(5) // square2 is not defined
+const square1 = x => x * x
+
+const square2 = (x) => {
+  return x * x
+}
+square1(5) // returns 25
+square2(5) // returns 25
+```
+
+#### Function Arguments
+
+- Use `=` after a function argument to assign a default value
+
+```javascript
+function power(base, exponent = 2) {
+  return Math.pow(base, exponent)
+}
+```
+
+#### Closure
+
+- The ability to reference a specific instance of a a local binding in an enclosing scope is called _closure_
+- A function that references bindings from local scopes around it is called _a closure_
+- _closure_ is the ability of a function to remember/reference a binding that was declared outside its local scope.
+
+#### Recursion
+
+- _Recursion_ is when a function calls itself, until it doesn't.
+
+#### Two-Types of Functions
+
+- Return value functions - pure functions are a subset
+- Side-Effect functions
+
+#### Exercises: Chapter03
+
+##### Minimum
+
+```javascript
+function min (x, y) {
+  return (x <=  y) ? x : y
+}
+```
+
+##### Recursion Exercise
+
+```javascript
+function isEven (n) {
+  if (n < 0) return isEven(-n)
+  if (n === 0) return true
+  if (n === 1) return false
+  return isEven(n - 2)
+}
+```
+
+##### Bean Counting
+
+```javascript
+function countBs (str) {
+  let count = 0
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === 'B') count++
+  }
+  return count
+}
+```
+
+```javascript
+function countChar (str, char) {
+  let count = 0
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === char) count++
+  }
+  return count
+}
+```
