@@ -3,6 +3,7 @@
 Notes on Eloquent Javascript 3rd Edition [book link](http://eloquentjavascript.net/)
 
 ## Table of Contents
+
 <!-- TOC -->
 
 - [Eloquent Javascript](#eloquent-javascript)
