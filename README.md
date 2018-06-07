@@ -20,13 +20,17 @@
       - [Bindings `===` Variables: `const, let, var`](#bindings--variables-const-let-var)
       - [Type: Functions](#type-functions)
       - [Control Flow: Conditional Execution](#control-flow-conditional-execution)
-      - [Exercises](#exercises)
+      - [Chapter 02 Exercises](#chapter-02-exercises)
         - [Looping a Triangle](#looping-a-triangle)
         - [FizzBuzz](#fizzbuzz)
         - [Chessboard](#chessboard)
     - [Chapter 03: Functions](#chapter-03-functions)
       - [Type: Function](#type-function)
       - [Bindings and Scope](#bindings-and-scope)
+      - [Chapter 03 Exercises](#chapter-03-exercises)
+        - [Minimum](#minimum)
+        - [Recursion](#recursion)
+        - [Bean Counting](#bean-counting)
 
 <!-- /TOC -->
 
@@ -188,7 +192,7 @@ switch (condition) {
 }
 ```
 
-#### Exercises
+#### Chapter 02 Exercises
 
 - Solutions found at [Eloquent JavaScript Solutions](https://eloquentjavascript.net/code#2)
 
@@ -243,8 +247,9 @@ for (let i = 0; i < size; i++) {
   }
   board += '\n'
 }
-console.log(board)
 ```
+
+console.log(board)
 
 ### Chapter 03: Functions
 
@@ -255,3 +260,62 @@ console.log(board)
 - The function _body_ contains the statements that are executed when the function is called.
 
 #### Bindings and Scope
+
+#### Chapter 03 Exercises
+
+##### Minimum
+
+```javascript
+// function declaration
+function min(x,y) {
+  return (x <= y) ? x : y;
+}
+
+// function assignment
+// function binding
+const min = (x,y) => {
+  return (x <= y) ? x : y
+  }
+
+// anonymous function
+function () {
+  return foo
+}
+```
+
+##### Recursion
+
+```javascript
+function recursiveEvenHelper(num) {
+  if (num === 0) return true
+  if (num === 1) return false
+  return recursiveEvenHelper(num - 2)
+}
+
+const isEven = (num) => {
+  // saucy usage of closure
+  if (num % 1 !== 0) return false
+  num = Math.abs(num)
+    return recursiveEvenHelper(num)
+}
+```
+
+##### Bean Counting
+
+```javascript
+function countBs(str) {
+  let count = 0
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === 'B') count++
+  }
+  return count
+}
+
+function countChar(str, char) {
+  let count = 0
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === char) count++
+  }
+  return count
+}
+```
