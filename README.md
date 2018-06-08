@@ -345,11 +345,15 @@ function min (x, y) {
 ### Recursion Exercise
 
 ```javascript
-function isEven (n) {
-  if (n < 0) return isEven(-n)
+function isEvenHelper (n) {
   if (n === 0) return true
   if (n === 1) return false
-  return isEven(n - 2)
+  return isEvenHelper(n - 2)
+}
+
+function isEven (n) {
+  if (n < 0) return n = -n
+  return isEvenHelper(n)
 }
 ```
 
