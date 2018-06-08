@@ -41,6 +41,8 @@ Notes on Eloquent Javascript 3rd Edition [book link](http://eloquentjavascript.n
     - [Recursion Exercise](#recursion-exercise)
     - [Bean Counting](#bean-counting)
   - [Chapter 04: Data Structures: Objects and Arrays](#chapter-04-data-structures-objects-and-arrays)
+    - [Properties](#properties)
+    - [Methods](#methods)
 
 <!-- /TOC -->
 
@@ -259,6 +261,8 @@ for (let i = 0; i < size; i++) {
 
 ### Type: Function
 
+>"People think that computer science is the art of geniuses but the actual reality is the opposite, just many people doing things that build on each other, like a wall of mini stones." - Donald Knuth
+
 - Functions are declared with the _function_ keyword
 - Functions consist of a set of _parameters_ and a _body_
 - The function _body_ contains the statements that are executed when the function is called.
@@ -345,15 +349,11 @@ function min (x, y) {
 ### Recursion Exercise
 
 ```javascript
-function isEvenHelper (n) {
-  if (n === 0) return true
-  if (n === 1) return false
-  return isEvenHelper(n - 2)
-}
-
 function isEven (n) {
   if (n < 0) return n = -n
-  return isEvenHelper(n)
+  if (n === 0) return true
+  if (n === 1) return false
+  return isEven(n - 2)
 }
 ```
 
@@ -366,21 +366,7 @@ function isEvenHelper(n) {
 }
 
 function isEven(n) {
-  if (n < 0) return isEven(-n)
-  return isEvenHelper(n)
-}
-```
-
-```javascript
-// with helper function
-function isEvenHelper(n) {
-  if (n === 0) return true
-  if (n === 1) return false
-  return isEvenHelper(n - 2)
-}
-
-function isEven(n) {
-  if (n < 0) return isEven(-n)
+  if (n < 0) return n = -n
   return isEvenHelper(n)
 }
 ```
@@ -408,3 +394,17 @@ function countChar (str, char) {
 ```
 
 ## Chapter 04: Data Structures: Objects and Arrays
+
+### Properties
+
+- _Properties_ on objects can be accessed via two methods:
+  - _dot-notation_: `array.length`
+  - _bracket-notation_: `array['length']`
+- _Bracket-notation_: Evaluates argument inside brackets before fetching property value
+
+### Methods
+
+- _Methods_ are functions inside objects
+- `delete obj.property` removes `property` from `obj`
+- `'str' in object`: _in_ binary operator returns boolean
+- `Object.keys(obj)`: returns string array of keys
