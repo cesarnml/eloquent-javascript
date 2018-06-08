@@ -371,6 +371,20 @@ function isEven(n) {
 }
 ```
 
+```javascript
+// with helper function
+function isEvenHelper(n) {
+  if (n === 0) return true
+  if (n === 1) return false
+  return isEvenHelper(n - 2)
+}
+
+function isEven(n) {
+  if (n < 0) return isEven(-n)
+  return isEvenHelper(n)
+}
+```
+
 ### Bean Counting
 
 ```javascript
