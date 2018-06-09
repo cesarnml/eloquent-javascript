@@ -43,16 +43,21 @@ Notes on Eloquent Javascript 3rd Edition [book link](http://eloquentjavascript.n
   - [Chapter 04: Data Structures: Objects and Arrays](#chapter-04-data-structures-objects-and-arrays)
     - [Properties](#properties)
     - [Methods](#methods)
+    - [Exercises: Chapter 04](#exercises-chapter-04)
+      - [The Sum of a Range](#the-sum-of-a-range)
+      - [Reversing an Array](#reversing-an-array)
+      - [A List](#a-list)
+      - [Deep Comparison](#deep-comparison)
 
 <!-- /TOC -->
 
 ## Progress
 
-- [X] *Introduction* [2018-05-21]
-- [X] *Chapter 01: Values, Types, and Operators* [2018-05-22]
-- [X] *Chapter 02: Program Structure* [2018-05-23]
-- [X] *Chapter 03: Functions* [2018-05-25]
-- [ ] Chapter 04: Data Structures: Objects and Arrays
+- [X] ~~*Introduction*~~ [2018-05-21]
+- [X] ~~*Chapter 01: Values, Types, and Operators*~~ [2018-05-22]
+- [X] ~~*Chapter 02: Program Structure*~~ [2018-05-23]
+- [X] ~~*Chapter 03: Functions*~~ [2018-05-25]
+- [X] ~~*Chapter 04: Data Structures: Objects and Arrays*~~ [2018-06-09]
 - [ ] Chapter 05: Higher-order Functions
 - [ ] Chapter 06: The Secret Life of Objects
 - [ ] Chapter 07: Project: A Robot
@@ -408,3 +413,83 @@ function countChar (str, char) {
 - `delete obj.property` removes `property` from `obj`
 - `'str' in object`: _in_ binary operator returns boolean
 - `Object.keys(obj)`: returns string array of keys
+- `array.indexOf(value)`: finds the array index of `value` or return `-1` if not found
+- `.slice(start,end)`: returns a slice of an array; `start` index is inclusive; `end` index is exclusive
+- `array1.concat(array2)`: joins two arrays
+- `Object.assign(targetObject,{Object Literal})`: adds properties to targetObject
+
+```javascript
+function removeIndex(array, index) {
+  array.slice(0,index).concat(array.slice(index+1))
+}
+```
+
+- String methods: `.trim()` `.padStart(length,char)` `.join('')` `.split('')`
+- Rest parameter: `function (...lastParameter)`
+- _Spread operator_: `function(...[array])`
+- `JSON.stringify(object)` and `JSON.parse(payload)`
+- `for (let element of array)`: fancy array `for` loop
+
+### Exercises: Chapter 04
+
+#### The Sum of a Range
+
+```javascript
+function range (start, end, step = start < end ? 1 : -1) {
+  let array = []
+  if (start <= end) {
+    for (let i = start; i <= end; i =+ step) array.push(i)
+  } else {
+    for (let i = start; i >= end; i =+ step) array.push(i)
+  }
+  return array
+}
+
+function sum(array) {
+  total = 0
+  for (let ele of array) {
+    total += ele
+  }
+  return total
+}
+
+console.log(sum(range(9, 2, -3))) // 18
+```
+
+#### Reversing an Array
+
+```javascript
+function reverseArray (array) {
+  let revArray = []
+  for (let item of array) revArray.unshift(item)
+  return revArray
+}
+
+function reverseArrayInPlace (array) {
+  const size = array.length
+  for (let i = 0; i < Math.floor(size / 2); i++) {
+    let temp = array[i]
+    array[i] = array[size - 1 - i]
+    array[size - 1 - i] = temp
+  }
+  return array
+}
+
+console.log(reverseArray([ 1, 2, 3 ])) // [3, 2, 1]
+
+let testArray = [1, 2, 3]
+console.log(reverseArrayInPlace(testArray)) // [3, 2, 1]
+console.log(testArray) // [3, 2, 1]
+```
+
+#### A List
+
+```javascript
+
+```
+
+#### Deep Comparison
+
+```javascript
+
+```
