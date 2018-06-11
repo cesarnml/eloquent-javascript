@@ -579,5 +579,25 @@ console.log(nth(3, list)) // undefined
 #### Deep Comparison
 
 ```javascript
+function deepEqual (value1, value2) {
+  if (typeof value1 !== 'object' && typeof value2 !== 'object') {
+    return value1 === value2
+  }
 
+  if (typeof value1 !== 'object' || typeof value2 !== 'object' ) {
+    return false
+  }
+  const val1Keys = Object.keys(value1)
+  const val2Keys = Object.keys(value2)
+  if (val1Keys.length === val2Keys.length) {
+    for (let i = 0; i < val1Keys.length; i++) {
+      if (value1[val1Keys[i]] !== value2[val2Keys[i]]) return false
+    }
+  } else {
+    return false
+  }
+  return true
+}
+const myAge = {age: 36}
+console.log(deepEqual({age: 36}, myAge)) // true
 ```
