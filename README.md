@@ -485,6 +485,94 @@ console.log(testArray) // [3, 2, 1]
 #### A List
 
 ```javascript
+let array = [1, 2]
+function arrayToList (array) {
+  const list = {}
+  let node = {}
+  while (array.length) {
+    const curValue = array.pop()
+    list.value = curValue
+
+    if (list.rest === undefined) {
+      list.rest = null
+    } else {
+      list.rest = node
+    }
+
+    node = {
+      value: list.value,
+      rest: list.rest
+    }
+  }
+  return list
+}
+
+const list = arrayToList(array)
+console.log(list) // list = {value: 1, rest: {value: 2, rest: null}}
+
+function listToArray (list) {
+  const array = []
+  if (list.value) {
+    array.push(list.value)
+  } else {
+    return array
+  }
+
+  while (list.rest) {
+    list = list.rest
+    array.push(list.value)
+  }
+  return array
+}
+
+console.log(listToArray(list)) // array = [1, 2]
+
+function prepend (newValue, list) {
+  const node = { value: list.value, rest: list.rest }
+  if (list.value) {
+    list.value = newValue
+    list.rest = node
+  } else {
+    list.value = newValue
+    list.rest = null
+  }
+  return list
+}
+
+console.log(prepend(0, list)) // list = {value: 0, rest: {value: 1, rest: {value: 2, rest: null}}}
+
+function nth (list, index) {
+  let nthValue = list.value
+  if (list.value === undefined || list.value === null) return undefined
+  while (index) {
+    index--
+    list = list.rest
+    if (!list.rest) {
+      return undefined
+    } else {
+      nthValue = list.value
+    }
+  }
+  return nthValue
+}
+
+function recursiveNth (list, index) {
+  let nthValue = list.value
+  if (list.value === undefined || list.value === null) return undefined
+  while (index) {
+    index--
+    if (!list.rest) return undefined
+    return recursiveNth(list.rest, index)
+  }
+  return nthValue
+}
+
+console.log(nth(0, list)) // 0
+console.log(nth(1, list)) // 1
+console.log(nth(2, list)) // 2
+console.log(nth(3, list)) // undefined
+
+// same for recursiveNth
 
 ```
 
