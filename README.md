@@ -490,8 +490,7 @@ function arrayToList (array) {
   const list = {}
   let node = {}
   while (array.length) {
-    const curValue = array.pop()
-    list.value = curValue
+    list.value = array.pop()
 
     if (list.rest === undefined) {
       list.rest = null
@@ -508,7 +507,6 @@ function arrayToList (array) {
 }
 
 const list = arrayToList(array)
-console.log(list) // list = {value: 1, rest: {value: 2, rest: null}}
 
 function listToArray (list) {
   const array = []
@@ -543,7 +541,7 @@ console.log(prepend(0, list)) // list = {value: 0, rest: {value: 1, rest: {value
 
 function nth (list, index) {
   let nthValue = list.value
-  if (list.value === undefined || list.value === null) return undefined
+  if (list.value < 0) return undefined
   while (index) {
     index--
     list = list.rest
